@@ -8,32 +8,31 @@ public class Student {
 	Teacher mc;
 	Scanner reader=new Scanner(System.in);
 	
-	public void setTeacher(Teacher butt) {
+	public void setTeacher(Teacher butt) { //transfers instance of butt to this class
 		mc=butt;
 	}
 	
-	public void ActionStudent() {
-		System.out.println("Please enter the corresponding number to the action you would like to take:\n"
+	public void ActionStudent() { //calls method that user wishes to go to
+		System.out.println("Please enter the corresponding number to the action you would like to take:\n" //prompt
 				+ "0 = Schedule a class,\n"
 				+ "1 = Check grades");
 		int choice;
 		choice=reader.nextInt();
 		switch(choice) {
-			case(0): schedule();
+			case(0): schedule(); //call schedule method
 			break;
-			case(1): CheckGrades();
+			case(1): CheckGrades(); //call check grades method
 			break;
-			default: Incorrect();
+			default: Incorrect(); //call error method
 			break;
-			} //use loop in main, prompt, if enter 1 then call actionstudent again
-
+			} 
 	}
 	
-	public void schedule() {
+	public void schedule() { //allows student to schedule a class
 		System.out.println("Please enter your student ID number.");
 		id=reader.nextInt();
 		
-		System.out.println("Enter the number out of the menu of the class that you woud like to take:\n"
+		System.out.println("Enter the number out of the menu of the class that you woud like to take:\n" //prompt
 				+ "1) Math \n"
 				+ "2) Science \n"
 				+ "3) History \n"
@@ -43,31 +42,34 @@ public class Student {
 		
 		System.out.println("Enter what block you would like to take that class (1-4).");
 		int block=reader.nextInt();
-		if ((block<1)||(block>4)) {
+		if ((block<1)||(block>4)) { //error
 			Incorrect();
 		}
 		
-		switch(choice) {
-		case(1): System.out.print("Math");
+		switch(choice) { //prints out message based on class and block entered
+		case(1): System.out.print("Math has been successfully added as your block "+block+" class.");
 		break;
-		case(2): System.out.print("Science");
+		case(2): System.out.print("Science has been successfully added as your block "+block+" class.");
 		break;
-		case(3): System.out.print("History");
+		case(3): System.out.print("History has been successfully added as your block "+block+" class.");
 		break;
-		case(4): System.out.print("English");
+		case(4): System.out.print("English has been successfully added as your block "+block+" class.");
 		break;
-		case(5): System.out.print("Gym");
+		case(5): System.out.print("Gym has been successfully added as your block "+block+" class.");
 		break;
 		default: Incorrect();
 		break;
 		}
-		System.out.println(" has been successfully added as your block "+block+" class.");
+		
 	}
 
-	public void CheckGrades() {
+	public void CheckGrades() { //prints out grade for student
 		System.out.println("Please enter your student ID number.");
 		id=reader.nextInt();
-		switch(mc.grades[id]) {
+		if (id>9) { //error
+			Incorrect();
+		}
+		switch(mc.grades[id]) { //uses value entered in the butt instance
 			case(1): System.out.println("A.");
 			break;
 			case(2): System.out.println("B.");
@@ -82,7 +84,7 @@ public class Student {
 		}
 	}
 		
-	public void Incorrect() {
+	public void Incorrect() { //error message
 		System.out.println("Sorry, this number does not correspond to an action. Please reenter.");
 	}
 }
