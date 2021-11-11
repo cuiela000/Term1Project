@@ -1,9 +1,11 @@
-import java.util.Scanner;
+package t1Project;
+
+ import java.util.Scanner;
 
 public class Teacher {
 	private int[] studentID = new int[10]; //array for the student's ID numbers		
 	private int[] attendance = new int[10]; //array for the student's attendance
-	private int[] grades = new int[10]; //array for the student's grades
+	public int[] grades = new int[10]; //array for the student's grades
 	private int IDnumber, action, answer; // declare other variables
 	Scanner reader = new Scanner(System.in);
 	
@@ -13,9 +15,9 @@ public class Teacher {
 	}
 	public void ActionTeacher() //method for the actions of what the teacher can do
 	{
-		this.action = 0;
-		this.answer = 0;
-		System.out.println("Please enter the corresponding number to the action you would like to take (0 = take attendance, 1 = assign grades)");
+		System.out.println("Please enter the corresponding number to the action you would like to take:\n"
+				+ "0 = take attendance,\n"
+				+ "1 = assign grades");
 		this.action = reader.nextInt();
 		if (this.action == 0) //if statement for when the user wants to take attendance
 		{
@@ -125,38 +127,41 @@ public class Teacher {
 		}
 		else
 		{
-			System.out.println("What grade did student " + this.IDnumber + " earn this term? (A = 0, B = 1, C = 2, D = 3, F = 4)");
+			System.out.println("What grade did student " + this.IDnumber + " earn this term? (A = 1, B = 2, C = 3, D = 4, F = 5)");
 			this.grades[this.IDnumber] = reader.nextInt(); //sets parallel array for the selected ID number to determine the grade
-			if (this.grades[IDnumber] == 0) //if statement for output
+			
+			if (this.grades[IDnumber] == 1) //if statement for output
 			{
 				System.out.println("Student " + this.IDnumber + "'s grade has been updated to an A.");
 			}
-			if (this.grades[IDnumber] == 1) //if statement for output
+			if (this.grades[IDnumber] == 2) //if statement for output
 			{
 				System.out.println("Student " + this.IDnumber + "'s grade has been updated to a B.");
 			}
-			if (this.grades[IDnumber] == 2) //if statement for output
+			if (this.grades[IDnumber] == 3) //if statement for output
 			{
 				System.out.println("Student " + this.IDnumber + "'s grade has been updated to a C.");
 			}
-			if (this.grades[IDnumber] == 3) //if statement for output
+			if (this.grades[IDnumber] == 4) //if statement for output
 			{
 				System.out.println("Student " + this.IDnumber + "'s grade has been updated to a D.");
 			}
-			if (this.grades[IDnumber] == 4) //if statement for output
+			if (this.grades[IDnumber] == 5) //if statement for output
 			{
 				System.out.println("Student " + this.IDnumber + "'s grade has been updated to a F.");
 			}
-			if (this.grades[IDnumber] > 4) //else for when 1-4 isn't enter, requires user to renter
+			if (this.grades[IDnumber] > 5) //else for when 1-4 isn't enter, requires user to renter
 			{
 				Incorrect(); //call incorrect method
 				AssignGrades(); //call method to renter
 			}
 		}
+		
 	}
 	public void Incorrect()
 	{
-		System.out.println("Sorry, this number does not correspond to an action. Please renter.");
+		System.out.println("Sorry, this number does not correspond to an action. Please reenter.");
 	}
 
 }
+
