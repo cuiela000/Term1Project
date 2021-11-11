@@ -1,3 +1,4 @@
+package t1Project;
 
 import java.util.Scanner;
 public class Main {
@@ -7,7 +8,9 @@ public class Main {
 		Scanner reader = new Scanner(System.in);
 		Teacher butt = new Teacher();
 		Student butt1 = new Student();
-		int choice1;
+		butt1.setTeacher(butt);
+		
+		int action, role;
 		do{
 			System.out.println("Enter the number of your role:\n"
 				+ "1) Teacher \n"
@@ -20,12 +23,12 @@ public class Main {
 			case(2): do {
 				butt1.ActionStudent();
 				System.out.println("Would you like to take another action? Enter 1 if yes, 0 if no.");
-				int action=reader.nextInt();
-			}while(choice==1);
+				action=reader.nextInt();
+			}while(action==1);
 			}
 			System.out.println("Would you like to sign in as a different role? Enter 1 if yes, 0 if no.");
-			choice1=reader.nextInt();
-		}while(choice1==1);
+			role=reader.nextInt();
+		}while(role==1);
 		
 		
 

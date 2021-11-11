@@ -1,10 +1,16 @@
+package t1Project;
+
 import java.util.Scanner;
 
 public class Student {
 
 	private int id;
-	Teacher mc=new Teacher();
+	Teacher mc;
 	Scanner reader=new Scanner(System.in);
+	
+	public void setTeacher(Teacher butt) {
+		mc=butt;
+	}
 	
 	public void ActionStudent() {
 		System.out.println("Please enter the corresponding number to the action you would like to take:\n"
